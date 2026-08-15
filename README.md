@@ -97,16 +97,7 @@ Invoke-RestMethod -Uri "<YOUR_API_URL>/notes/<NOTE_ID>" -Method GET
 Invoke-RestMethod -Uri "<YOUR_API_URL>/notes/<NOTE_ID>" -Method DELETE
 ```
 
-## Tearing it down
-
-This project stays almost entirely within AWS free tier, but it's still good practice to clean up test resources:
-
-```bash
-terraform destroy
-```
-Type `yes` when prompted.
-
-## Real debugging notes (kept here on purpose)
+## Real debugging notes 
 
 Two genuine bugs came up during deployment — both are common serverless gotchas worth knowing:
 
