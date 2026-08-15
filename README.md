@@ -11,31 +11,7 @@ same way a real backend API would be.
 
 ## Architecture
 
-```
-        Client (curl / Postman / any HTTP client)
-                        │
-                        ▼
-            ┌───────────────────────┐
-            │   API Gateway (HTTP)  │
-            │   GET    /notes       │
-            │   GET    /notes/{id}  │
-            │   POST   /notes       │
-            │   DELETE /notes/{id}  │
-            └───────────┬───────────┘
-                        │ AWS_PROXY integration
-                        ▼
-            ┌───────────────────────┐
-            │   Lambda (Python)     │
-            │   notes-handler       │
-            └───────────┬───────────┘
-                        │ IAM role scoped to
-                        │ this table only
-                        ▼
-            ┌───────────────────────┐
-            │   DynamoDB            │
-            │   notes table         │
-            └───────────────────────┘
-```
+![Serverless API Architecture](architecture.svg)
 
 ## Why this design (interview talking points)
 
@@ -97,16 +73,7 @@ Invoke-RestMethod -Uri "<YOUR_API_URL>/notes/<NOTE_ID>" -Method GET
 Invoke-RestMethod -Uri "<YOUR_API_URL>/notes/<NOTE_ID>" -Method DELETE
 ```
 
-## Tearing it down
-
-This project stays almost entirely within AWS free tier, but it's still good practice to clean up test resources:
-
-```bash
-terraform destroy
-```
-Type `yes` when prompted.
-
-## Real debugging notes (kept here on purpose)
+## Real debugging notes 
 
 Two genuine bugs came up during deployment — both are common serverless gotchas worth knowing:
 
