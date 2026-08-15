@@ -11,31 +11,7 @@ same way a real backend API would be.
 
 ## Architecture
 
-```
-        Client (curl / Postman / any HTTP client)
-                        │
-                        ▼
-            ┌───────────────────────┐
-            │   API Gateway (HTTP)  │
-            │   GET    /notes       │
-            │   GET    /notes/{id}  │
-            │   POST   /notes       │
-            │   DELETE /notes/{id}  │
-            └───────────┬───────────┘
-                        │ AWS_PROXY integration
-                        ▼
-            ┌───────────────────────┐
-            │   Lambda (Python)     │
-            │   notes-handler       │
-            └───────────┬───────────┘
-                        │ IAM role scoped to
-                        │ this table only
-                        ▼
-            ┌───────────────────────┐
-            │   DynamoDB            │
-            │   notes table         │
-            └───────────────────────┘
-```
+![Serverless API Architecture](architecture.svg)
 
 ## Why this design (interview talking points)
 
