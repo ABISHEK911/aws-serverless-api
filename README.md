@@ -101,3 +101,9 @@ Both were diagnosed by testing Lambda directly with `aws lambda invoke` (bypassi
 - Add request validation on the API Gateway routes
 - Add a simple static frontend (S3 + CloudFront) that calls this API
 - Add DynamoDB Streams + a second Lambda to demonstrate event-driven processing
+
+## Author
+
+**Abishek P**
+
+AWS Solutions Architect Associate Aspirant
